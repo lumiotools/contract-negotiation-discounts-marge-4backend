@@ -8,7 +8,11 @@ import fs from "fs"; // Node.js module to handle file system
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors(
+    {
+        origin:"*"
+    }
+));
 app.use(express.json());
 
 // storage pdf
