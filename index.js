@@ -76,6 +76,9 @@ app.post(
       };
 
       const { data } = await axios(config);
+      if(!data.file_name_1 || !data.file_name_2 || !data.exactWeeklyBandRange){
+        return res.status(400).json({message:"Invalid file upload data"})
+      }
       console.log(data);
       const responses = await Promise.all([
         fetch(process.env.NEXT_PUBLIC_DOMESTIC_ACCESORIALS_API_URL, {
